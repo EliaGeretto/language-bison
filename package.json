@@ -1,6 +1,6 @@
 {
   "name": "language-bison-improved",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Atom language support for Bison",
   "repository": {
     "type": "git",
