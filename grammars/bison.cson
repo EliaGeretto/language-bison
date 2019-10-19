@@ -141,14 +141,12 @@
   'rules':
     'patterns': [
       {
-        'begin': '([a-zA-Z_.\-][a-zA-Z_.\-0-9]*)\\s*(:)'
+        'begin': '([a-zA-Z_.\-][a-zA-Z_.\-0-9]*)\\s*'
         'end': ';'
         'beginCaptures':
           '1':
             'name': 'variable.grammar-rule.token-type.bison'
             'comment': 'Match the result of the grammar rule'
-          '2':
-            'name': 'punctuation.grammar-rule.result-separator.bison'     # :
         'endCaptures':
           '0':
             'name': 'punctuation.grammar-rule.end.bison'
@@ -156,7 +154,14 @@
         'name': 'meta.grammar-rule.bison'
         'patterns': [
           {
-            'include': '#components'
+            'begin': ':'
+            'name': 'punctuation.grammar-rule.result-separator.bison'     # :
+            'end': '(?=;)'
+            'patterns': [
+              {
+                'include': '#components'
+              }
+            ]
           }
         ]
       }
